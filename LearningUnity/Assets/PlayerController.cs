@@ -20,6 +20,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerMove();
+    }
+
+    void playerMove()
+    {
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, movePoint.position) == 0)
@@ -41,13 +46,19 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            anim.SetBool("moving", false);
+            //anim.SetBool("moving", false);
 
         }
-            
+
         else
         {
-            anim.SetBool("moving", true);
+            //anim.SetBool("moving", true);
         }
+
+    }
+
+    void playerAttack()
+    {
+
     }
 }
