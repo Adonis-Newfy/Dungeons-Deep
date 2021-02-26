@@ -1,40 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum gameState
-{
-    START,
-    PLAYERTURN,
-    ENEMYTURN,
-    ADVANCE,
-    DEATH
-}
-
-
 public class TurnListener : MonoBehaviour
 {
+    //True when currently players turn, false otherwise.
+    private Boolean isPlayerTurn;
 
-    public gameState state;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        state = gameState.START;
+        //GameEvents.current.onPlayerAction += OnPlayerTurn;
+        //GameEvents.current.onEnemyAction += OnEnemyTurn;
+
+        this.isPlayerTurn = true;
+    }
+    public Boolean GetCurrentTurn()
+    {
+        return isPlayerTurn;
     }
 
-    void waitForPlayer()
+    public void endCurrentTurn()
     {
-        while (state == gameState.PLAYERTURN)
-        {
-            //wait for player to do something
-            //check to see
-        }
+        this.isPlayerTurn = !isPlayerTurn;
     }
-
-    void enemyTurn()
-    {
-
-    }
-
 }
