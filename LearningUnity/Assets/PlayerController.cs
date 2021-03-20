@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask whatStopsMovement;
 
-    public Animator anim;
+    //public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -41,13 +41,13 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            anim.SetBool("moving", false);
+            //anim.SetBool("moving", false);
 
         }
             
         else
         {
-            anim.SetBool("moving", true);
+           //anim.SetBool("moving", true);
         }
     }
 }
