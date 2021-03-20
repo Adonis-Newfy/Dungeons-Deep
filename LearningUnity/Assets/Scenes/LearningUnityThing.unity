@@ -232,7 +232,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 809007704}
+      objectReference: {fileID: 158186732}
     - target: {fileID: 2478021424719110431, guid: b6285723e791b5d48af5ecf422667fc5,
         type: 3}
       propertyPath: gameController
@@ -243,8 +243,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8977572414251081442, guid: b6285723e791b5d48af5ecf422667fc5,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6285723e791b5d48af5ecf422667fc5, type: 3}
+--- !u!4 &158186732 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6683871295766124527, guid: e39e80c18166b054a92f57933e1bf299,
+    type: 3}
+  m_PrefabInstance: {fileID: 1256933848}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &456622471 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2478021424719110431, guid: b6285723e791b5d48af5ecf422667fc5,
@@ -323,7 +334,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 809007704}
+      objectReference: {fileID: 158186732}
     - target: {fileID: 2478021424719110431, guid: b6285723e791b5d48af5ecf422667fc5,
         type: 3}
       propertyPath: gameController
@@ -483,12 +494,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!4 &809007704 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6683871294999129057, guid: e39e80c18166b054a92f57933e1bf299,
-    type: 3}
-  m_PrefabInstance: {fileID: 1256933848}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &855874546
 GameObject:
   m_ObjectHideFlags: 0
@@ -3762,13 +3767,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1836308530940874700, guid: b6285723e791b5d48af5ecf422667fc5,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836308530940874700, guid: b6285723e791b5d48af5ecf422667fc5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836308530940874700, guid: b6285723e791b5d48af5ecf422667fc5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836308530940874700, guid: b6285723e791b5d48af5ecf422667fc5,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.4
+      value: -4.354
       objectReference: {fileID: 0}
     - target: {fileID: 1836308530940874700, guid: b6285723e791b5d48af5ecf422667fc5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.57
+      value: 4.5705
       objectReference: {fileID: 0}
     - target: {fileID: 1836308530940874700, guid: b6285723e791b5d48af5ecf422667fc5,
         type: 3}
@@ -3814,7 +3834,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 809007704}
+      objectReference: {fileID: 158186732}
     - target: {fileID: 2478021424719110431, guid: b6285723e791b5d48af5ecf422667fc5,
         type: 3}
       propertyPath: gameController
@@ -3824,6 +3844,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8526889898314635290, guid: b6285723e791b5d48af5ecf422667fc5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.21303856
+      objectReference: {fileID: 0}
+    - target: {fileID: 8526889898314635290, guid: b6285723e791b5d48af5ecf422667fc5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2195629
+      objectReference: {fileID: 0}
+    - target: {fileID: 8526889898314635290, guid: b6285723e791b5d48af5ecf422667fc5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2195629
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6285723e791b5d48af5ecf422667fc5, type: 3}
@@ -4717,7 +4752,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 809007704}
+      objectReference: {fileID: 158186732}
     - target: {fileID: 2478021424719110431, guid: b6285723e791b5d48af5ecf422667fc5,
         type: 3}
       propertyPath: gameController
@@ -4806,12 +4841,12 @@ PrefabInstance:
     - target: {fileID: 6683871294999129057, guid: e39e80c18166b054a92f57933e1bf299,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.503
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 6683871294999129057, guid: e39e80c18166b054a92f57933e1bf299,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.521
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 6683871294999129057, guid: e39e80c18166b054a92f57933e1bf299,
         type: 3}

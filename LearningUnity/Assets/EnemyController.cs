@@ -29,11 +29,85 @@ public class EnemyController : MonoBehaviour
 
     public void enemyMove()
     {
+        pursueTarget();
+    }
+
+    private void pursueTarget()
+    {
+        if (inRange() == true)
+        {
+            attackTarget();
+        }
+
+        else
+        {
+            if (target.position.x < this.movePoint.position.x)
+            {
+                moveLeft();
+            }
+
+            else if (target.position.x > this.movePoint.position.x)
+            {
+                moveRight();
+            }
+
+            if (target.position.y < this.movePoint.position.y)
+            {
+                moveDown();
+            }
+
+            else if (target.position.y > this.movePoint.position.y)
+            {
+                moveUp();
+            }
+        }
+    }
+
+    private void moveUp()
+    {
+        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 1f, 0f), .2f, whatStopsMovement))
+        {
+            movePoint.position += new Vector3(0f, 1f, 0f);
+        }
+    }
+
+    private void moveDown()
+    {
+        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .2f, whatStopsMovement))
+        {
+            movePoint.position += new Vector3(0f, -1f, 0f);
+        }
+    }
+
+    private void moveLeft()
+    {
+        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(-1f, 0f, 0f), .2f, whatStopsMovement))
+        {
+            movePoint.position += new Vector3(-1f, 0f, 0f);
+        }
+    }
+
+    private void moveRight()
+    {
         if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(1f, 0f, 0f), .2f, whatStopsMovement))
         {
             movePoint.position += new Vector3(1f, 0f, 0f);
-            //movePoint.position += Vector3.MoveTowards(target.position, movePoint.position, moveSpeed * Time.deltaTime);
         }
-        //GameEvents.current.playerAction();
+    }
+
+    private void attackTarget()
+    {
+        //TODO: implement attack functionality.
+        print("Attacked player!");
+    }
+       
+    private bool inRange()
+    {
+        //1.5 Distance seems to work fine for now: might run into issues later.
+        if (Vector3.Distance(target.position, this.movePoint.position) < 1.5)
+            return true;
+
+        else
+            return false;
     }
 }

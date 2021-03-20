@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
@@ -23,14 +24,13 @@ public class GameController : MonoBehaviour
             enemyMove();
             endTurn();
         }
-
     }
 
     public void enemyMove()
     {
-        foreach (EnemyController enemy in enemies)
+        for (int i = 0; i < enemies.Length; i++)
         {
-            enemy.enemyMove();
+            enemies[i].enemyMove();
         }
     }
 

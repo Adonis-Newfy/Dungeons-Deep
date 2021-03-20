@@ -822,7 +822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2963183150707694259}
   - component: {fileID: 1243040216116549726}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyMovePoint
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -1044,3 +1044,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   gameController: {fileID: 0}
+  target: {fileID: 0}

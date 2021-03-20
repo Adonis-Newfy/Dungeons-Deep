@@ -74,6 +74,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   anim: {fileID: 6683871294999129058}
+  gameController: {fileID: 0}
 --- !u!212 &6683871294999129071
 SpriteRenderer:
   m_ObjectHideFlags: 0
