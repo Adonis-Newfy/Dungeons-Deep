@@ -10,6 +10,10 @@ public class GameController : MonoBehaviour
 
     public EnemyController[] enemies;
 
+    public Player player;
+
+    public GameObject playerObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +27,11 @@ public class GameController : MonoBehaviour
         {
             enemyMove();
             endTurn();
+        }
+
+        if (checkLoseCondition() == true)
+        {
+            Destroy(playerObject);
         }
     }
 
@@ -42,5 +51,23 @@ public class GameController : MonoBehaviour
     public Boolean getTurn()
     {
         return listener.GetCurrentTurn();
+    }
+
+    public void resolveEnemyAttack(int attack)
+    {
+        player.setCurrentHP(player.getCurrentHP() - attack);
+
+        print("Player HP is: " + player.getCurrentHP());
+    }
+
+    private bool checkLoseCondition()
+    {
+        if (player.getNourishment() <= 0 || player.getCurrentHP() <= 0)
+        {
+            return true;
+        }
+
+        else
+            return false;
     }
 }

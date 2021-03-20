@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour
+public abstract class Unit : MonoBehaviour
 {
-    public string unitName;
+    abstract public int getMaxHP();
 
-    public int attack;
+    abstract public int getAttack();
 
-    public int maxHP;
-    public int currentHP;
+    abstract public int getCurrentHP();
+
+    abstract public string getUnitName();
+
+    abstract public void setName(string name);
+
+    abstract public void setMaxHP(int hp);
+
+    abstract public void setAttack(int att);
+
+    abstract public void setCurrentHP(int hp);
 }

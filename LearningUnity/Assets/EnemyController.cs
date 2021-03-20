@@ -6,6 +6,8 @@ public class EnemyController : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
+    public GameObject thisEnemy;
+
     public Transform movePoint;
     public Transform enemySprite;
 
@@ -14,6 +16,10 @@ public class EnemyController : MonoBehaviour
     public GameController gameController;
 
     public Transform target;
+
+    public Enemy enemy;
+
+    private bool active = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,47 +31,79 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         enemySprite.position = Vector3.MoveTowards(enemySprite.position, movePoint.position, moveSpeed * Time.deltaTime);
+        if (enemy.getCurrentHP() <= 0)
+        {
+            Destroy(thisEnemy);
+        }
     }
 
     public void enemyMove()
     {
-        pursueTarget();
+        if (active)
+        {
+            pursueTarget();
+        }
+
+        if (inRange(10f) == true)
+        {
+            becomeActive();
+        }
     }
 
     private void pursueTarget()
     {
-        if (inRange() == true)
+        if (inRange(1.5f) == true)
         {
             attackTarget();
         }
 
         else
         {
-            if (target.position.x < this.movePoint.position.x)
+            if (targetXDifference() > targetYDifference())
             {
-                moveLeft();
+                if (target.position.x < this.movePoint.position.x)
+                {
+                    moveLeft();
+                }
+
+                else if (target.position.x > this.movePoint.position.x)
+                {
+                    moveRight();
+                }
             }
 
-            else if (target.position.x > this.movePoint.position.x)
+            else if (targetYDifference() > targetXDifference())
             {
-                moveRight();
-            }
+                if (target.position.y < this.movePoint.position.y)
+                {
+                    moveDown();
+                }
 
-            if (target.position.y < this.movePoint.position.y)
-            {
-                moveDown();
-            }
-
-            else if (target.position.y > this.movePoint.position.y)
-            {
-                moveUp();
+                else if (target.position.y > this.movePoint.position.y)
+                {
+                    moveUp();
+                }
             }
         }
     }
 
+    private float targetXDifference()
+    {
+        float difference = Mathf.Abs(this.movePoint.position.x - target.position.x);
+
+        return difference;
+    }
+
+    private float targetYDifference()
+    {
+        float difference = Mathf.Abs(this.movePoint.position.y - target.position.y);
+
+        return difference;
+    }
+
     private void moveUp()
     {
-        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 1f, 0f), .2f, whatStopsMovement))
+        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 1f, 0f), .45f, whatStopsMovement))
         {
             movePoint.position += new Vector3(0f, 1f, 0f);
         }
@@ -73,7 +111,7 @@ public class EnemyController : MonoBehaviour
 
     private void moveDown()
     {
-        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .2f, whatStopsMovement))
+        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), .45f, whatStopsMovement))
         {
             movePoint.position += new Vector3(0f, -1f, 0f);
         }
@@ -81,7 +119,7 @@ public class EnemyController : MonoBehaviour
 
     private void moveLeft()
     {
-        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(-1f, 0f, 0f), .2f, whatStopsMovement))
+        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(-1f, 0f, 0f), .45f, whatStopsMovement))
         {
             movePoint.position += new Vector3(-1f, 0f, 0f);
         }
@@ -89,7 +127,7 @@ public class EnemyController : MonoBehaviour
 
     private void moveRight()
     {
-        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(1f, 0f, 0f), .2f, whatStopsMovement))
+        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(1f, 0f, 0f), .45f, whatStopsMovement))
         {
             movePoint.position += new Vector3(1f, 0f, 0f);
         }
@@ -97,17 +135,22 @@ public class EnemyController : MonoBehaviour
 
     private void attackTarget()
     {
-        //TODO: implement attack functionality.
         print("Attacked player!");
+        gameController.resolveEnemyAttack(enemy.getAttack());
     }
        
-    private bool inRange()
+    private bool inRange(float range)
     {
         //1.5 Distance seems to work fine for now: might run into issues later.
-        if (Vector3.Distance(target.position, this.movePoint.position) < 1.5)
+        if (Vector3.Distance(target.position, this.movePoint.position) < range)
             return true;
 
         else
             return false;
+    }
+
+    private void becomeActive()
+    {
+        active = true;
     }
 }

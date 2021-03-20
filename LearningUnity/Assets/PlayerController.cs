@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
     public GameController gameController;
 
+    public Player player;
+
     private bool performedAction = false;
 
     // Start is called before the first frame update
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour
             {
                 performedAction = false;
                 gameController.endTurn();
+                updateNourishmentAfterMove();
             }
         }
 
@@ -76,4 +79,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void updateNourishmentAfterMove()
+    {
+        player.setNourishment((player.getNourishment() - 1));
+    }
 }
