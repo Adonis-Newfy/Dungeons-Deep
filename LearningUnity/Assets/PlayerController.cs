@@ -5,11 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
+
     public Transform movePoint;
 
     public LayerMask whatStopsMovement;
 
     public Animator anim;
+
+    public GameController gameController;
+
+    private bool performedAction = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,45 +25,55 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerMove();
+        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+
+        if (gameController.getTurn() == true)
+        {
+            playerMove();
+            if (performedAction == true)
+            {
+                performedAction = false;
+                gameController.endTurn();
+            }
+        }
+
+        else
+            print("Not player turn!");
     }
 
     void playerMove()
     {
-        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
-
         if (Vector3.Distance(transform.position, movePoint.position) == 0)
         {
 
             if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
             {
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .2f, whatStopsMovement))
-                {
-                    movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
-                }
+                moveHorizontal();
             }
 
             if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
             {
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), .2f, whatStopsMovement))
-                {
-                    movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
-                }
+                moveVertical();
             }
-
-            //anim.SetBool("moving", false);
-
         }
-
-        else
-        {
-            //anim.SetBool("moving", true);
-        }
-
     }
 
-    void playerAttack()
+    void moveHorizontal()
     {
-
+        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .2f, whatStopsMovement))
+        {
+            movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+            performedAction = true;
+        }
     }
+
+    void moveVertical()
+    {
+        if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), .2f, whatStopsMovement))
+        {
+            movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+            performedAction = true;
+        }
+    }
+
 }
