@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 9345cc6b3acba4f47b7cc3ce4de58133
   - enabled: 1
-    path: Assets/Scenes/HUB World.unity
-    guid: e2efa852809aefc4daec2189ca165df3
+    path: Assets/Scenes/New HUB World.unity
+    guid: 5a14097b80a40374eb77d4a9bfbdc498
   - enabled: 1
     path: Assets/Scenes/LearningUnityThing.unity
     guid: c598921c46b884745b8259dcfe5c66a7
