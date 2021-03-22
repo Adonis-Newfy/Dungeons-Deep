@@ -21,6 +21,8 @@ public class EnemyController : MonoBehaviour
 
     private bool active = false;
 
+    private bool alive = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,11 +32,16 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemySprite.position = Vector3.MoveTowards(enemySprite.position, movePoint.position, moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
         if (enemy.getCurrentHP() <= 0)
         {
-            Destroy(thisEnemy);
+            alive = false;
         }
+    }
+
+    public bool isAlive()
+    {
+        return alive;
     }
 
     public void enemyMove()
@@ -44,7 +51,7 @@ public class EnemyController : MonoBehaviour
             pursueTarget();
         }
 
-        if (inRange(10f) == true)
+        if (inRange(20f) == true)
         {
             becomeActive();
         }

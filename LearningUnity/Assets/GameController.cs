@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
 
     public TurnListener listener;
 
-    public EnemyController[] enemies;
+    public List<EnemyController> enemies;
 
     public Player player;
 
@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        checkEnemyStatus();
+
         if (getTurn() == false)
         {
             enemyMove();
@@ -31,13 +33,43 @@ public class GameController : MonoBehaviour
 
         if (checkLoseCondition() == true)
         {
-            Destroy(playerObject);
+            print("Game Over.");
+        }
+    }
+
+    public void flagForDamage(GameObject enemy, int damage)
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            if (enemy == enemies[i].gameObject)
+            {
+                enemies[i].enemy.setCurrentHP(enemies[i].enemy.getCurrentHP() - damage);
+                print("Enemy " + enemies[i].gameObject + " hp is: " + enemies[i].enemy.getCurrentHP());
+            }
+
+            else
+            {
+                print("Could not cross-compare enemy.");
+            }
+        }
+    }
+
+    public void checkEnemyStatus()
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            if (enemies[i].isAlive() == false)
+            {
+                Destroy(enemies[i].movePoint.gameObject);
+                Destroy(enemies[i].thisEnemy);
+                enemies.RemoveAt(i);
+            }
         }
     }
 
     public void enemyMove()
     {
-        for (int i = 0; i < enemies.Length; i++)
+        for (int i = 0; i < enemies.Count; i++)
         {
             enemies[i].enemyMove();
         }
@@ -70,4 +102,22 @@ public class GameController : MonoBehaviour
         else
             return false;
     }
+
+    /*
+    private void removeFromArray(int index)
+    {
+        EnemyController[] newArray = new EnemyController[enemies.Length - 1];
+
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            if (i != index)
+            {
+                newArray[i] = enemies[i];
+            }
+        }
+
+        enemies = newArray;
+    }
+    */
+
 }
