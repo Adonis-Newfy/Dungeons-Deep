@@ -14,6 +14,10 @@ public class GameController : MonoBehaviour
 
     public GameObject playerObject;
 
+    public GameObject winConditionScreen;
+
+    public bool gg = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +38,21 @@ public class GameController : MonoBehaviour
         if (checkLoseCondition() == true)
         {
             print("Game Over.");
+        }
+
+        checkWinCondition();
+    }
+
+    public void checkWinCondition()
+    {
+        if (enemies.Count == 0)
+        {
+            gg = true;
+        }
+
+        if (gg == true)
+        {
+            winConditionScreen.SetActive(true);
         }
     }
 
