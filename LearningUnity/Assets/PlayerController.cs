@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject pauseMenu;
 
+    public GameObject gameOver;
+
     private enum direction
     {
         NORTH,
@@ -50,18 +52,25 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
-        if (gameController.getTurn() == true)
+        if (!(player.getCurrentHP() <= 0))
         {
-            playerAction();
-            updateParameters();
+            if (gameController.getTurn() == true)
+            {
+                playerAction();
+                updateParameters();
+            }
+
+            else
+                print("Not player turn!");
+
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                openPauseMenu();
+            }
         }
-
         else
-            print("Not player turn!");
-
-        if (Input.GetKey(KeyCode.Escape))
         {
-            openPauseMenu();
+            gameOver.SetActive(true);
         }
     }
 
