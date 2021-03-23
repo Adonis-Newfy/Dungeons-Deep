@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class PlayerController : MonoBehaviour
     private bool performedAction = false;
 
     private bool movedHorizontal;
+
+    public GameObject pauseMenu;
 
     private enum direction
     {
@@ -55,6 +58,21 @@ public class PlayerController : MonoBehaviour
 
         else
             print("Not player turn!");
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            openPauseMenu();
+        }
+    }
+
+    void openPauseMenu()
+    {
+        pauseMenu.SetActive(true);
+    }
+
+    public void exitGame()
+    {
+        SceneManager.LoadScene(0);
     }
 
     void playerAction()

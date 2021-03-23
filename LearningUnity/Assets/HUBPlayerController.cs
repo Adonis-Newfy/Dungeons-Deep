@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HUBPlayerController: MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class HUBPlayerController: MonoBehaviour
     public Transform movePoint;
 
     public LayerMask whatStopsMovement;
+
+    public GameObject pauseMenu;
 
 
     // Start is called before the first frame update
@@ -23,6 +26,21 @@ public class HUBPlayerController: MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
         playerAction();
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            openPauseMenu();
+        }
+    }
+
+    void openPauseMenu()
+    {
+        pauseMenu.SetActive(true);
+    }
+
+    public void exitGame()
+    {
+        SceneManager.LoadScene(0);
     }
 
     void playerAction()
