@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 366
     height: 460
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 433, y: 271}
   m_MaxSize: {x: 14003, y: 10021}
   vertical: 0
-  controlID: 2381
+  controlID: 111
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -96,10 +96,10 @@ MonoBehaviour:
     y: 30
     width: 2560
     height: 1307
-  m_MinSize: {x: 708, y: 492}
-  m_MaxSize: {x: 18003, y: 14042}
+  m_MinSize: {x: 709, y: 492}
+  m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 118
+  controlID: 141
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -119,8 +119,8 @@ MonoBehaviour:
     y: 0
     width: 552
     height: 1307
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -338,20 +338,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: G:\Project Thing\Dungeons-Deep\LearningUnity
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: d8a00000
-    m_LastClickedID: 41176
-    m_ExpandedIDs: 00000000783600007a3600007c3600007e36000080360000823600008436000000ca9a3b
+    m_SelectedIDs: 20420000
+    m_LastClickedID: 16928
+    m_ExpandedIDs: 0000000020420000224200002442000026420000284200002a4200002c420000f068000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -379,7 +379,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000783600007a3600007c3600007e360000803600008236000084360000
+    m_ExpandedIDs: 0000000020420000224200002442000026420000284200002a4200002c4200002e420000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -502,9 +502,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 4cd4feffe8fbfeffecfbfeff9a5cffffe267ffff1c6bffffec6cffffe070ffff6274fffffc9cffff4ea1ffffa6a3ffff90b8ffff6ac6ffffacc8ffff10d8ffff12daffff66fbffff7c350000903500003acc0000c4250100c8c60100f2c701006cca0100aacf010052f5010076f50100c2f50100d2f50100f8c50200
+      m_SelectedIDs: 16740000
+      m_LastClickedID: 29718
+      m_ExpandedIDs: 5283ffffe687ffffe689ffffde8cfffffe8effffacb3ffff34b6ffffd2efffff16f2ffff94f3fffff8f6ffff1ef7ffff2cf7ffff0ef9ffff66fbffff26610000ea640000a66500001e660000006a0000526c0000ca6c0000266e0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -564,9 +564,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 7.6211767, y: 0.77717626, z: -283.79004}
+    m_Target: {x: 20.727549, y: 3.401782, z: -308.9961}
     speed: 2
-    m_Value: {x: 7.6211767, y: 0.77717626, z: -283.79004}
+    m_Value: {x: 20.727549, y: 3.401782, z: -308.9961}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -616,9 +616,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 8.17097
+    m_Target: 10.254601
     speed: 2
-    m_Value: 8.17097
+    m_Value: 9.813015
   m_Ortho:
     m_Target: 1
     speed: 2
