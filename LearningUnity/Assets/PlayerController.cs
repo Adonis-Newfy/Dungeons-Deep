@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,7 +26,6 @@ public class PlayerController : MonoBehaviour
 
     public GameObject pauseMenu;
 
-    public GameObject gameOver;
 
     private enum direction
     {
@@ -41,6 +42,10 @@ public class PlayerController : MonoBehaviour
 
     direction facing = direction.SOUTH;
 
+    //New Stuff 2021-14-05
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +57,12 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
-        if (!(player.getCurrentHP() <= 0))
+        if (pauseMenu.activeSelf == true)
+        {
+            updateParameters();
+        }
+
+        else if (!(player.getCurrentHP() <= 0))
         {
             if (gameController.getTurn() == true)
             {
@@ -67,10 +77,6 @@ public class PlayerController : MonoBehaviour
             {
                 openPauseMenu();
             }
-        }
-        else
-        {
-            gameOver.SetActive(true);
         }
     }
 
@@ -332,6 +338,66 @@ public class PlayerController : MonoBehaviour
         }
 
         return directionOfAttack;
+    }
+
+    //New Stuff 2021-04-05
+
+    public string getDirection()
+    {
+        return facing.ToString();
+    }
+
+    public void drinkPotion()
+    {
+        if (player.getPotionCount() > 0)
+        {
+            player.setCurrentHP(player.getCurrentHP() + 10);
+            player.setPotionCount(player.getPotionCount() - 1);
+            performedAction = true;
+            if (player.getCurrentHP() > player.getMaxHP())
+            {
+                player.setCurrentHP(player.getMaxHP());
+            }
+        }
+
+        if (performedAction == true)
+        {
+            performedAction = false;
+            gameController.endTurn();
+        }
+     }
+
+    public void eatFood()
+    {
+        if(player.getFoodAmount() > 0)
+        {
+            player.setNourishment(player.getNourishment() + 50);
+            player.setFoodAmount(player.getFoodAmount() - 1);
+            performedAction = true;
+        }
+
+        if (performedAction == true)
+        {
+            performedAction = false;
+            gameController.endTurn();
+        }
+
+    }
+
+    public void upgradeWeapon()
+    {
+        if (player.getUpgradeMaterials() > 0)
+        {
+            player.setAttack(player.getAttack() + 1);
+            player.setUpgradeMaterials(player.getUpgradeMaterials() - 1);
+            performedAction = true;
+        }
+
+        if (performedAction == true)
+        {
+            performedAction = false;
+            gameController.endTurn();
+        }
     }
 
 }

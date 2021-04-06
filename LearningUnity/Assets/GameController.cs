@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class GameController : MonoBehaviour
     public GameObject winConditionScreen;
 
     public bool gg = false;
+
+    public GameObject loseScreen;
+
+    public GameObject healText;
+    public GameObject nourishmentText;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +43,8 @@ public class GameController : MonoBehaviour
 
         if (checkLoseCondition() == true)
         {
-            print("Game Over.");
+            loseScreen.SetActive(true);
+
         }
 
         checkWinCondition();
@@ -82,6 +89,9 @@ public class GameController : MonoBehaviour
                 Destroy(enemies[i].movePoint.gameObject);
                 Destroy(enemies[i].thisEnemy);
                 enemies.RemoveAt(i);
+
+                //Add some sort of enemies.getValue() rather than increasing currency by a flat amount
+                player.setCurrency(player.getCurrency() + 10);
             }
         }
     }
@@ -113,8 +123,17 @@ public class GameController : MonoBehaviour
 
     private bool checkLoseCondition()
     {
-        if (player.getNourishment() <= 0 || player.getCurrentHP() <= 0)
+        if (player.getNourishment() <= 0)
         {
+            healText.SetActive(false);
+            nourishmentText.SetActive(true);
+            return true;
+        }
+        
+        else if (player.getCurrentHP() <= 0)
+        {
+            healText.SetActive(true);
+            nourishmentText.SetActive(false);
             return true;
         }
 

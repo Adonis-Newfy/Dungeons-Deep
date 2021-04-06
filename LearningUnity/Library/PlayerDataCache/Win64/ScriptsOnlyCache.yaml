@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - EnemyController
     - GameController
     - HUBPlayerController
+    - HUDVariables
     - LoadHUBWorld
     - LoadNextLevel
     - LoadTestLevel
@@ -13,6 +14,8 @@ ScriptsOnlyBuild:
     - Player
     - PlayerController
     - ShopMenu
+    - ShopMenuFunctionality
+    - StorageMenuFunctionality
     - TurnListener
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
@@ -168,6 +171,12 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12920}
     - Class: 114
       Script: {instanceID: 13334}
+    - Class: 114
+      Script: {instanceID: 39690}
+    - Class: 114
+      Script: {instanceID: 153446}
+    - Class: 114
+      Script: {instanceID: 206808}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -257,6 +266,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13270}
     - Class: 114
       Script: {instanceID: 13334}
+    - Class: 114
+      Script: {instanceID: 39690}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1024,10 +1035,28 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: e68bda7d7a39e26eda823dfbcaacc022
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HUDVariables
+  - hash:
+      serializedVersion: 2
+      Hash: aef9386513e10c2b58b4c2172faf4e3c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShopMenuFunctionality
+  - hash:
+      serializedVersion: 2
+      Hash: dd91cd78e3d071e4f595e1e6d6b7774b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StorageMenuFunctionality
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity
   - Assets/Scenes/New HUB World.unity
   - Assets/Scenes/Static Test Level.unity
-  playerPath: G:/Project Thing/Dungeons-Deep V0.1.1/Dungeons-Deep V0.1.1 (Windows)/Dungeons
+  playerPath: G:/Project Thing/Dungeons-Deep V0.1.7/Dungeons-Deep V0.1.7 (Windows)/Dungeons
     Deep.exe
