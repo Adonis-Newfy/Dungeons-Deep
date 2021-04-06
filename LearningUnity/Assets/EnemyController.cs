@@ -66,7 +66,7 @@ public class EnemyController : MonoBehaviour
 
         else
         {
-            if (targetXDifference() > targetYDifference())
+            if (targetXDifference() >= targetYDifference())
             {
                 if (target.position.x < this.movePoint.position.x)
                 {

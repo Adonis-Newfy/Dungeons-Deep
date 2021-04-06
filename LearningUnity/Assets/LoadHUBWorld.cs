@@ -7,6 +7,7 @@ public class LoadHUBWorld : MonoBehaviour
 {
     public void LoadLevel()
     {
+        PlayerPrefs.SetInt("Currency", 0);
         SceneManager.LoadScene(1);
     }
 }

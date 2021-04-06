@@ -14,6 +14,8 @@ public class HUBPlayerController: MonoBehaviour
 
     public GameObject pauseMenu;
 
+    //New Stuff 2021-04-05
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,17 +27,28 @@ public class HUBPlayerController: MonoBehaviour
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
-        playerAction();
 
-        if (Input.GetKey(KeyCode.Escape))
+        if (pauseMenu.activeSelf == true)
         {
-            openPauseMenu();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                openPauseMenu();
+            }
+        }
+        else
+        {
+            playerAction();
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                openPauseMenu();
+            }
         }
     }
 
     void openPauseMenu()
     {
-        pauseMenu.SetActive(true);
+        pauseMenu.SetActive(!(pauseMenu.activeSelf));
     }
 
     public void exitGame()
@@ -105,5 +118,8 @@ public class HUBPlayerController: MonoBehaviour
             movePoint.position += new Vector3(1f, 0f, 0f);
         }
     }
+
+    //New Stuff 2021-04-05
+
 
 }

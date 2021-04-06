@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - EnemyController
     - GameController
     - HUBPlayerController
+    - HUDVariables
     - LoadHUBWorld
     - LoadNextLevel
     - LoadTestLevel
@@ -13,9 +14,10 @@ ScriptsOnlyBuild:
     - Player
     - PlayerController
     - ShopMenu
+    - ShopMenuFunctionality
+    - StorageMenuFunctionality
     - TurnListener
     Unity.2D.Tilemap.Editor.dll:
-    - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
     - UnityEditor.Tilemaps.GridPalettes
@@ -30,13 +32,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -82,21 +77,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11962}
     - Class: 114
-      Script: {instanceID: 12616}
+      Script: {instanceID: 12618}
     - Class: 114
-      Script: {instanceID: 12632}
+      Script: {instanceID: 12634}
     - Class: 114
-      Script: {instanceID: 12638}
+      Script: {instanceID: 12640}
     - Class: 114
-      Script: {instanceID: 12850}
+      Script: {instanceID: 12852}
     - Class: 114
-      Script: {instanceID: 12918}
+      Script: {instanceID: 12920}
     - Class: 114
-      Script: {instanceID: 13108}
+      Script: {instanceID: 13110}
     - Class: 114
-      Script: {instanceID: 13222}
+      Script: {instanceID: 13224}
     - Class: 114
-      Script: {instanceID: 13332}
+      Script: {instanceID: 13334}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -167,15 +162,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12244}
     - Class: 114
-      Script: {instanceID: 12616}
+      Script: {instanceID: 12466}
     - Class: 114
-      Script: {instanceID: 12850}
+      Script: {instanceID: 12618}
     - Class: 114
-      Script: {instanceID: 12918}
+      Script: {instanceID: 12852}
     - Class: 114
-      Script: {instanceID: 13332}
+      Script: {instanceID: 12920}
     - Class: 114
-      Script: {instanceID: 29948}
+      Script: {instanceID: 13334}
+    - Class: 114
+      Script: {instanceID: 39690}
+    - Class: 114
+      Script: {instanceID: 153446}
+    - Class: 114
+      Script: {instanceID: 206808}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -256,15 +257,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12242}
     - Class: 114
-      Script: {instanceID: 12616}
+      Script: {instanceID: 12618}
     - Class: 114
-      Script: {instanceID: 12850}
+      Script: {instanceID: 12852}
     - Class: 114
-      Script: {instanceID: 12918}
+      Script: {instanceID: 12920}
     - Class: 114
-      Script: {instanceID: 13268}
+      Script: {instanceID: 13270}
     - Class: 114
-      Script: {instanceID: 13332}
+      Script: {instanceID: 13334}
+    - Class: 114
+      Script: {instanceID: 39690}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -626,7 +629,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: 3046790d1ed8a6b38ada4a428fe7d057
+      Hash: 11b5008861c0ff4c49f447886af54941
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -672,6 +675,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: Cainos.PixelArtTopDown_Basic
     className: TopDownCharacterController
+  - hash:
+      serializedVersion: 2
+      Hash: 731efca124df7dca7f1c357b8cd8051b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PetCat
   - hash:
       serializedVersion: 2
       Hash: e244702e0dc05782229aa524e4d757f5
@@ -1028,13 +1037,26 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 731efca124df7dca7f1c357b8cd8051b
+      Hash: e68bda7d7a39e26eda823dfbcaacc022
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: PetCat
+    className: HUDVariables
+  - hash:
+      serializedVersion: 2
+      Hash: aef9386513e10c2b58b4c2172faf4e3c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShopMenuFunctionality
+  - hash:
+      serializedVersion: 2
+      Hash: dd91cd78e3d071e4f595e1e6d6b7774b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StorageMenuFunctionality
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity
   - Assets/Scenes/New HUB World.unity
   - Assets/Scenes/Static Test Level.unity
-  playerPath: G:/Project Thing/Dungeons-Deep V0.1 (Windows)/Dungeons Deep.exe
+  playerPath: G:/Project Thing/Dungeons-Deep V0.1.7/Dungeons-Deep V0.1.7 (Windows)/Dungeons
+    Deep.exe
