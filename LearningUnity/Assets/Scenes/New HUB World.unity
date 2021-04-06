@@ -37994,6 +37994,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   pauseMenu: {fileID: 617743926}
+  anim: {fileID: 1165141298}
+  mySpriteRenderer: {fileID: 1165141297}
+--- !u!212 &1165141297 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6683871294999129071, guid: e39e80c18166b054a92f57933e1bf299,
+    type: 3}
+  m_PrefabInstance: {fileID: 2022539140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1165141298 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6683871294999129058, guid: e39e80c18166b054a92f57933e1bf299,
+    type: 3}
+  m_PrefabInstance: {fileID: 2022539140}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1165145740
 GameObject:
   m_ObjectHideFlags: 0

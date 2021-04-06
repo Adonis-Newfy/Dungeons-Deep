@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject pauseMenu;
 
+    public SpriteRenderer mySpriteRenderer;
+
 
     private enum direction
     {
@@ -261,11 +263,52 @@ public class PlayerController : MonoBehaviour
 
     private void updateParameters()
     {
+        updateAnimation();
+
         if (performedAction == true)
         {
             performedAction = false;
             gameController.endTurn();
             updateNourishmentAfterMove();
+        }
+    }
+
+    void updateAnimation()
+    {
+        if (facing == direction.NORTH)
+        {
+            anim.SetBool("WalkNorth", true);
+            anim.SetBool("WalkSouth", false);
+            anim.SetBool("WalkWest", false);
+        }
+
+        else if (facing == direction.SOUTH)
+        {
+            anim.SetBool("WalkSouth", true);
+            anim.SetBool("WalkNorth", false);
+            anim.SetBool("WalkWest", false);
+        }
+
+        else if (facing == direction.WEST)
+        {
+            anim.SetBool("WalkWest", true);
+            if (mySpriteRenderer.flipX == true)
+            {
+                mySpriteRenderer.flipX = false;
+            }
+            anim.SetBool("WalkSouth", false);
+            anim.SetBool("WalkNorth", false);
+        }
+
+        else if (facing == direction.EAST)
+        {
+            anim.SetBool("WalkWest", true);
+            if (mySpriteRenderer.flipX == false)
+            {
+                mySpriteRenderer.flipX = true;
+            }
+            anim.SetBool("WalkSouth", false);
+            anim.SetBool("WalkNorth", false);
         }
     }
 

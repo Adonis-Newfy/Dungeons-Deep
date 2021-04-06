@@ -3116,7 +3116,7 @@ Animator:
   m_GameObject: {fileID: 6683871294999129060}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d61bddfd823cd5a48aaba57d02b39a39, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -3144,11 +3144,12 @@ MonoBehaviour:
     m_Bits: 256
   hitTheBoys:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   anim: {fileID: 6683871294999129058}
   gameController: {fileID: 0}
   player: {fileID: 1557611472654124175}
   pauseMenu: {fileID: 8910159608108709543}
+  mySpriteRenderer: {fileID: 6683871294999129071}
 --- !u!212 &6683871294999129071
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3394,7 +3395,7 @@ GameObject:
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6683871295766124527
 Transform:
   m_ObjectHideFlags: 0

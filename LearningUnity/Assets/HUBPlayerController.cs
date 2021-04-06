@@ -14,7 +14,30 @@ public class HUBPlayerController: MonoBehaviour
 
     public GameObject pauseMenu;
 
+    public Animator anim;
+
+    public SpriteRenderer mySpriteRenderer;
+
     //New Stuff 2021-04-05
+
+    private enum direction
+    {
+        NORTH,
+        SOUTH,
+        EAST,
+        WEST,
+
+        NORTHEAST,
+        NORTHWEST,
+        SOUTHEAST,
+        SOUTHWEST
+    }
+
+    direction facing = direction.SOUTH;
+
+    bool movedHorizontal = false;
+
+
 
 
     // Start is called before the first frame update
@@ -38,11 +61,51 @@ public class HUBPlayerController: MonoBehaviour
         else
         {
             playerAction();
+            updateAnimation();
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 openPauseMenu();
             }
+        }
+    }
+
+    void updateAnimation()
+    {
+        if (facing == direction.NORTH)
+        {
+            anim.SetBool("WalkNorth", true);
+            anim.SetBool("WalkSouth", false);
+            anim.SetBool("WalkWest", false);
+        }
+
+        else if (facing == direction.SOUTH)
+        {
+            anim.SetBool("WalkSouth", true);
+            anim.SetBool("WalkNorth", false);
+            anim.SetBool("WalkWest", false);
+        }
+
+        else if (facing == direction.WEST)
+        {
+            anim.SetBool("WalkWest", true);
+            if (mySpriteRenderer.flipX == true)
+            {
+                mySpriteRenderer.flipX = false;
+            }
+            anim.SetBool("WalkSouth", false);
+            anim.SetBool("WalkNorth", false);
+        }
+
+        else if (facing == direction.EAST)
+        {
+            anim.SetBool("WalkWest", true);
+            if (mySpriteRenderer.flipX == false)
+            {
+                mySpriteRenderer.flipX = true;
+            }
+            anim.SetBool("WalkSouth", false);
+            anim.SetBool("WalkNorth", false);
         }
     }
 
@@ -65,26 +128,115 @@ public class HUBPlayerController: MonoBehaviour
     {
         if (Vector3.Distance(transform.position, movePoint.position) == 0)
         {
-            if (Input.GetAxisRaw("Horizontal") == 1f)
+
+            if (Input.GetKey(KeyCode.LeftShift))
             {
-                moveRight();
+                adjustDirection();
             }
 
-            else if (Input.GetAxisRaw("Horizontal") == -1f)
+            else
             {
-                moveLeft();
-            }
+                if (Input.GetAxisRaw("Horizontal") == 1f)
+                {
+                    moveRight();
+                    facing = direction.EAST;
+                    movedHorizontal = true;
+                }
 
-            if (Input.GetAxisRaw("Vertical") == 1f)
-            {
-                moveUp();
-            }
+                else if (Input.GetAxisRaw("Horizontal") == -1f)
+                {
+                    moveLeft();
+                    facing = direction.WEST;
+                    movedHorizontal = true;
+                }
 
-            else if (Input.GetAxisRaw("Vertical") == -1f)
-            {
-                moveDown();
+                if (Input.GetAxisRaw("Vertical") == 1f)
+                {
+                    moveUp();
+                    if (movedHorizontal == true)
+                    {
+                        if (facing == direction.EAST)
+                        {
+                            facing = direction.NORTHEAST;
+                        }
+                        else
+                            facing = direction.NORTHWEST;
+                    }
+
+                    else
+                        facing = direction.NORTH;
+                }
+
+                else if (Input.GetAxisRaw("Vertical") == -1f)
+                {
+                    moveDown();
+                    if (movedHorizontal == true)
+                    {
+                        if (facing == direction.EAST)
+                        {
+                            facing = direction.SOUTHEAST;
+                        }
+                        else
+                            facing = direction.SOUTHWEST;
+                    }
+
+                    else
+                        facing = direction.SOUTH;
+                }
+
+
+                movedHorizontal = false;
             }
         }
+    }
+
+    private void adjustDirection()
+    {
+        if (Input.GetAxisRaw("Horizontal") == 1f)
+        {
+            facing = direction.EAST;
+            movedHorizontal = true;
+        }
+
+        else if (Input.GetAxisRaw("Horizontal") == -1f)
+        {
+            facing = direction.WEST;
+            movedHorizontal = true;
+        }
+
+        if (Input.GetAxisRaw("Vertical") == 1f)
+        {
+            if (movedHorizontal == true)
+            {
+                if (facing == direction.EAST)
+                {
+                    facing = direction.NORTHEAST;
+                }
+                else
+                    facing = direction.NORTHWEST;
+            }
+
+            else
+                facing = direction.NORTH;
+        }
+
+        else if (Input.GetAxisRaw("Vertical") == -1f)
+        {
+            if (movedHorizontal == true)
+            {
+                if (facing == direction.EAST)
+                {
+                    facing = direction.SOUTHEAST;
+                }
+                else
+                    facing = direction.SOUTHWEST;
+            }
+
+            else
+                facing = direction.SOUTH;
+        }
+
+        movedHorizontal = false;
     }
 
     private void moveUp()
@@ -120,6 +272,7 @@ public class HUBPlayerController: MonoBehaviour
     }
 
     //New Stuff 2021-04-05
+
 
 
 }
