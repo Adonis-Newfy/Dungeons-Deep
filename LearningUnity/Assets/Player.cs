@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     {
         attack = PlayerPrefs.GetInt("Attack");
         maxHP = PlayerPrefs.GetInt("MaxHealth");
-        currentHP = PlayerPrefs.GetInt("CurrentHealth");
+        currentHP = PlayerPrefs.GetInt("MaxHealth");
         nourishment = PlayerPrefs.GetInt("Nourishment");
         currency = PlayerPrefs.GetInt("Currency");
         foodAmount = PlayerPrefs.GetInt("FoodAmount");

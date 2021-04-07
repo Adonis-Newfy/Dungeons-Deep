@@ -112,6 +112,9 @@ public class GameController : MonoBehaviour
         {
             if (golemBoss.isAlive() == false)
             {
+                player.setCurrency(player.getCurrency() + 200);
+                //PlayerPrefs.SetInt("MaxHealth", player.getMaxHP() + 10);
+                player.setMaxHP(player.getMaxHP() + 10);
                 Destroy(golemBoss.movePoint.gameObject);
                 Destroy(golemBoss.thisEnemy);
             }
