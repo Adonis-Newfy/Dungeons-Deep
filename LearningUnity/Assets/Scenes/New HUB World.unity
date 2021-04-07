@@ -33042,6 +33042,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1785377048}
+        m_MethodName: petCat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &907741857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39547,7 +39558,7 @@ GameObject:
   - component: {fileID: 1250569415}
   - component: {fileID: 1250569414}
   m_Layer: 0
-  m_Name: bwcat_crouch_strip8_0
+  m_Name: HUBCat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39563,7 +39574,7 @@ Animator:
   m_GameObject: {fileID: 1250569413}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c123605d79a2926498cb90cbcf133f6b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7ffd0d436b604114392a23f4e9f0131d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -52054,6 +52065,7 @@ MonoBehaviour:
   catMenu: {fileID: 1844678945}
   panelA: {fileID: 1619470645}
   panelB: {fileID: 1822951637}
+  anim: {fileID: 1250569414}
 --- !u!61 &1785377049
 BoxCollider2D:
   m_ObjectHideFlags: 0

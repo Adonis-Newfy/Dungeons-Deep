@@ -319,8 +319,6 @@ public class PlayerController : MonoBehaviour
 
     void basicAttack()
     {
-        //TODO: Implement attack functionality here.
-
         RaycastHit2D hit = Physics2D.Raycast(movePoint.position, transform.TransformDirection(attackDirection()), 1.5f, hitTheBoys);
 
         if (hit)

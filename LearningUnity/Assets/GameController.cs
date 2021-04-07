@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
 
     public List<EnemyController> enemies;
 
+    public GolemBossController golemBoss;
+
     public Player player;
 
     public GameObject playerObject;
@@ -37,6 +39,10 @@ public class GameController : MonoBehaviour
 
         if (getTurn() == false)
         {
+            if (golemBoss != null)
+            {
+                bossMove();
+            }
             enemyMove();
             endTurn();
         }
@@ -50,9 +56,15 @@ public class GameController : MonoBehaviour
         checkWinCondition();
     }
 
+    public void bossMove()
+    {
+        golemBoss.bossAction();
+        print(golemBoss.golem.getCurrentHP());
+    }
+
     public void checkWinCondition()
     {
-        if (enemies.Count == 0)
+        if (enemies.Count == 0 && golemBoss == null)
         {
             gg = true;
         }
@@ -65,23 +77,46 @@ public class GameController : MonoBehaviour
 
     public void flagForDamage(GameObject enemy, int damage)
     {
-        for (int i = 0; i < enemies.Count; i++)
+        if (golemBoss != null && enemy == golemBoss.gameObject)
         {
-            if (enemy == enemies[i].gameObject)
+            if (golemBoss.playerBuffed() == true)
             {
-                enemies[i].enemy.setCurrentHP(enemies[i].enemy.getCurrentHP() - damage);
-                print("Enemy " + enemies[i].gameObject + " hp is: " + enemies[i].enemy.getCurrentHP());
+                damage += 20;
             }
+            golemBoss.golem.setCurrentHP(golemBoss.golem.getCurrentHP() - damage);
 
-            else
+            golemBoss.dropHammer();
+        }
+
+        else
+        {
+            for (int i = 0; i < enemies.Count; i++)
             {
-                print("Could not cross-compare enemy.");
+                if (enemy == enemies[i].gameObject)
+                {
+                    enemies[i].enemy.setCurrentHP(enemies[i].enemy.getCurrentHP() - damage);
+                    print("Enemy " + enemies[i].gameObject + " hp is: " + enemies[i].enemy.getCurrentHP());
+                }
+
+                else
+                {
+                    print("Could not cross-compare enemy.");
+                }
             }
         }
     }
 
     public void checkEnemyStatus()
     {
+        if (golemBoss != null)
+        {
+            if (golemBoss.isAlive() == false)
+            {
+                Destroy(golemBoss.movePoint.gameObject);
+                Destroy(golemBoss.thisEnemy);
+            }
+        }
+
         for (int i = 0; i < enemies.Count; i++)
         {
             if (enemies[i].isAlive() == false)
