@@ -14,6 +14,13 @@ public class AoEScript : MonoBehaviour
         }
     }
 
+    public void OnTriggerStay2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            boss.playerInAoE(true);
+        }
+    }
     public void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")

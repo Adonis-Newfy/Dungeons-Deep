@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class LoadHUBWorld : MonoBehaviour
 {
-    public void LoadLevel()
+    public void loadHUBWorld()
     {
         PlayerPrefs.SetInt("Currency", 0);
         SceneManager.LoadScene(1);
+    }
+
+    public void loadBossLevel()
+    {
+        SceneManager.LoadScene(3);
     }
 }

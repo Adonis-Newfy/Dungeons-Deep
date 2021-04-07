@@ -121,12 +121,13 @@ public class GameController : MonoBehaviour
         {
             if (enemies[i].isAlive() == false)
             {
+                player.setCurrency(player.getCurrency() + enemies[i].enemy.getValue());
                 Destroy(enemies[i].movePoint.gameObject);
                 Destroy(enemies[i].thisEnemy);
                 enemies.RemoveAt(i);
 
                 //Add some sort of enemies.getValue() rather than increasing currency by a flat amount
-                player.setCurrency(player.getCurrency() + 10);
+                
             }
         }
     }

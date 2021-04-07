@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/New HUB World.unity
     guid: 5a14097b80a40374eb77d4a9bfbdc498
   - enabled: 1
-    path: Assets/Scenes/Static Test Level.unity
-    guid: 947d5af67d70c574986e078f5bc7ecee
+    path: Assets/Scenes/Presentation Level.unity
+    guid: 1aa19f33c9d4c904880335b4aadf6802
+  - enabled: 1
+    path: Assets/Scenes/Boss Arena.unity
+    guid: 6a61d0119fff756438ae43c43d103a9c
   m_configObjects: {}

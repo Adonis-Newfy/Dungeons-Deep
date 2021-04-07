@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour
             pursueTarget();
         }
 
-        if (inRange(20f) == true)
+        if (inRange(8f) == true)
         {
             becomeActive();
         }

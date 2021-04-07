@@ -101,7 +101,7 @@ public class GolemBossController : MonoBehaviour
             inner[0].parent.gameObject.SetActive(true);
         }
 
-        if (aoeCounter == 10)
+        if (aoeCounter == 11)
         {
             if (aoeDamage == true)
             {
@@ -112,7 +112,7 @@ public class GolemBossController : MonoBehaviour
             outer[0].parent.gameObject.SetActive(true);
         }
 
-        if (aoeCounter == 15)
+        if (aoeCounter == 17)
         {
             if (aoeDamage == true)
             {

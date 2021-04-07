@@ -20,6 +20,8 @@ public class HUBPlayerController: MonoBehaviour
 
     //New Stuff 2021-04-05
 
+    public Player player;
+
     private enum direction
     {
         NORTH,
@@ -273,6 +275,40 @@ public class HUBPlayerController: MonoBehaviour
 
     //New Stuff 2021-04-05
 
+    public string getDirection()
+    {
+        return facing.ToString();
+    }
 
+    public void drinkPotion()
+    {
+        if (player.getPotionCount() > 0)
+        {
+            player.setCurrentHP(player.getCurrentHP() + 10);
+            player.setPotionCount(player.getPotionCount() - 1);
+            if (player.getCurrentHP() > player.getMaxHP())
+            {
+                player.setCurrentHP(player.getMaxHP());
+            }
+        }
+    }
+
+    public void eatFood()
+    {
+        if (player.getFoodAmount() > 0)
+        {
+            player.setNourishment(player.getNourishment() + 50);
+            player.setFoodAmount(player.getFoodAmount() - 1);
+        }
+    }
+
+    public void upgradeWeapon()
+    {
+        if (player.getUpgradeMaterials() > 0)
+        {
+            player.setAttack(player.getAttack() + 1);
+            player.setUpgradeMaterials(player.getUpgradeMaterials() - 1);
+        }
+    }
 
 }

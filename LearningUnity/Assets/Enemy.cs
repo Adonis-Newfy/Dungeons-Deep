@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     private int attack = 1;
     private int maxHP = 5;
     private int currentHP = 5;
+    private int goldValue = 20;
 
     public int getMaxHP()
     {
@@ -47,6 +48,11 @@ public class Enemy : MonoBehaviour
     public void setCurrentHP(int hp)
     {
         currentHP = hp;
+    }
+
+    public int getValue()
+    {
+        return goldValue;
     }
 
 }
